@@ -1,11 +1,15 @@
 # Raise3D Pro 3+ for Cura
-Ongoing effort to create a printer profile for the Raise3d Pro 3(+) in Cura
+This Github is an ongoing effort to create a good printer profile for the Raise3d Pro 3(+) in Cura. It defines, the printer, extruder, nozzles and materials. It also comes with an installer (script) that helps to install the printer profile for all installed instances of Cura. 
+
+It is my hope that other people will try out and help tune the profile untill the quality is as good as can be expected from the printer.
 
 ## Installer
-The installer requires InnoSetup to be present. 
+The installer requires InnoSetup to be present. It will  install the printer profile for all installed instances of Cura. Currently it has only been tested for Windows 10, but will likely work for other versions as well.  
 
+## Resources
+Here you can find an older but fully annotated verions of the  v1 profile. It also includes a file with only the Start- & Stop G-code, which has been traken directly from IdeaMaker
 
-## V1
+## Pro3plus_v1/Release
 Basic profile created based on IdeaMaker settings and Pro2 efforts. Start & Stop G-code was extracted from Ideamaker
 
 ### Issues 
@@ -21,13 +25,14 @@ Basic profile created based on IdeaMaker settings and Pro2 efforts. Start & Stop
 ### Result
 Initial benchies failed.  ugly bottom, significant hull line, surface adhesion insufficient: benchy build from buildplate at +/- 50%
 
-## V2
+## Pro3plus_v1/Release
 Updated profile with settings from Ultimaker S5 & Creatility, added quality variants, nozzle variants & materials (based on Creality)
 
 ### Issues 
 - [X] fix materials warning  "no profiles matching the configuration of this extruder"
 
 ### Result
-Benchies succeeded. Bottom looks very good, significant hull line, ugly overhangs with clear bridging. Possibly the cooling has not worked? 
+First succesfull Bency! The bottom looks very good, significant hull line, ugly overhangs with clear bridging. Current theory is that cooling fan flow is insufficient or non-existent
+
 
 
