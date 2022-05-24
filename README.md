@@ -1,4 +1,4 @@
-![Raise3D 3 Pro for Cura logo](/Resources/logo.png?raw=true )
+![ArduinoLog logo](/Resources/logo.png?raw=true )
 Raise3D Pro 3+ for Cura
 ====================
 [![License](https://img.shields.io/badge/license-MIT%20License-blue.svg)](http://doge.mit-license.org)
