@@ -1,4 +1,10 @@
-# Raise3D Pro 3+ for Cura
+![Raise3D 3 Pro for Cura logo](/Resources/logo.png?raw=true )
+Raise3D Pro 3+ for Cura
+====================
+[![License](https://img.shields.io/badge/license-MIT%20License-blue.svg)](http://doge.mit-license.org)
+
+*Raise3D printer profile for Cura*
+
 This Github is an ongoing effort to create a good printer profile for the Raise3d Pro 3(+) in Cura. It defines, the printer, extruder, nozzles and materials. It also comes with an installer (script) that helps to install the printer profile for all installed instances of Cura. 
 
 It is my hope that other people will try out and help tune the profile untill the quality is as good as can be expected from the printer.
