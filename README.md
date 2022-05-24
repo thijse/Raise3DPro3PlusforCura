@@ -1,6 +1,10 @@
 # Raise3D Pro 3+ for Cura
 Ongoing effort to create a printer profile for the Raise3d Pro 3(+) in Cura
 
+## Installer
+The installer requires InnoSetup to be present. 
+
+
 ## V1
 Basic profile created based on IdeaMaker settings and Pro2 efforts. Start & Stop G-code was extracted from Ideamaker
 
@@ -12,10 +16,10 @@ Basic profile created based on IdeaMaker settings and Pro2 efforts. Start & Stop
 - [ ] "machine_min_cool_heat_time_window" I don't know why this was set for so long for the Pro2, check      
 - [ ] fix materials warning  "no profiles matching the configuration of this extruder"
 - [ ] Check the length of material retracted during a retraction move copied from Ideamaker
-- [ ]- Does the 2nd extruder have its own fan?  "machine_extruder_cooling_fan_number" : { "default_value": 1 }
+- [ ] Does the 2nd extruder have its own fan?  "machine_extruder_cooling_fan_number" : { "default_value": 1 }
 
 ### Result
-Initial benchies failed
+Initial benchies failed.  ugly bottom, significant hull line, surface adhesion insufficient: benchy build from buildplate at +/- 50%
 
 ## V2
 Updated profile with settings from Ultimaker S5 & Creatility, added quality variants, nozzle variants & materials (based on Creality)
