@@ -1,0 +1,219 @@
+{
+    "version": 2,
+    # human-readable machine name
+    "name": "Raise3D Pro3+",
+    # this machine definition file is based on "fdmprinter.def.json". 
+    # Todo: Check if makes a difference if inherts from ultimaker
+    "inherits": "fdmprinter",   
+
+    "metadata": {
+        "author": "Raise3D",
+        "manufacturer": "Raise3D",
+
+        # Whether this machine is visible in the machine selection list
+        "visible": true,
+
+        # The gcode file formats this machine supports in the order of preferences. In your case,
+        # you probably just need "text/x-gcode"
+        "file_formats": "application/gzip;text/x-gcode",
+
+        # This is 3D model for your machine platform. Put your model file in "resources/meshes/" folder 
+        #"platform": "ultimaker3_platform.obj",
+
+        # The texture image file of your machine platform. It's usually the logo of your machine.
+        #"platform_texture": "Ultimaker3backplate.png",
+
+        # The offset of your platform model for rendering
+        "platform_offset": [0, 0, 0],
+
+        # Whether your machine has the possibility to choose different material profiles.
+        # If this is set to "true", you will see the materials selection menu in Cura for your machine.
+        "has_materials": true,
+
+        # Whether your machine has the possibility to choose different variants.
+        # If this is set to "true", you will see the variant selection menu in Cura for your machine.
+        # By variants, we meant nozzles. You can have some specific variant profiles defined in folder
+        # "resources/variants". See files there as examples.
+        #"has_variants": true,
+
+        # The human-readable label for variants.
+        "variants_name": "Hotend",
+
+        # The preferred variant name for your machine.
+        # This is used as the default variant for your machine.
+        #"preferred_variant_name": "Hotend 0.4",
+
+        # If there are machine-specific settings in material profiles for your machine.
+        # Open one material file and you can see that there are overall settings and there are specific settings
+        # for certain types of machines such as Ultimaker 3 and even more specific settings for a machine with
+        # a variant/nozzle such as "Ultimaker 3 AA 0.4". This field indicates whether you have machine-specific
+        # settings in materials in that regard.
+        #"has_machine_materials": true,
+
+        # Similar to "has_machine_materials", but this says if there is variant-specific settings in materials,
+        # such as for "Ultimaker 3 AA 0.4".
+        #"has_variant_materials": true,
+
+        # The preferred quality type for your machine.
+        # This is used as the default quality type for your machine.
+        # For quality types that are available, please check the "quality_type" field in files in
+        # "resources/quality" folder
+        "preferred_quality_type": "normal",
+
+        # This field indicates whether your machine has specific quality profiles which you have created.
+        # Normally, we will just use the default profiles for your machine in "resources/quality" folder
+        # and NOT in its sub-folders. But you can also create your set of quality profiles for your machine.
+        # Those profiles can be places in "resources/quality/<my-machine>" folder. Please check the other
+        # folders for examples.
+        # In this case, you need to set this field to "true" so Cura knows to look for your specific qualities
+        # instead of using the default ones.
+        "has_machine_quality": true,
+
+        # The extruder definitions this machine has.
+        # The names are the file names of your extruder definition files without (.def.json) file extensions.
+        "machine_extruder_trains":
+        {
+            "0": "Raise3D_Pro3Plus_extruder_left",
+            "1": "Raise3D_Pro3Plus_extruder_right"
+        },
+    },
+
+    "overrides": {
+		# The name of your 3D printer model
+        "machine_name": { "default_value": "Raise3D Pro3+" },
+        
+		# The width (X-direction) of the printable area.
+		"machine_width": {
+            "default_value": 300
+        },
+		
+		# The depth (Y-direction) of the printable area
+        "machine_height": {
+            "default_value": 605
+        },
+		
+		# The height (Z-direction) of the printable area
+        "machine_depth": {
+            "default_value": 300
+        },
+		
+		# Whether the X/Y coordinates of the zero position of the printer is at the center of the printable area
+        "machine_center_is_zero": {
+            "default_value": false
+        },
+		
+		# Whether the machine has a heated build plate present
+        "machine_heated_bed": {
+            "default_value": true
+        },
+		
+		# Whether the machine is able to stabilize the build volume temperature
+		"machine_heated_build_volume": {
+            "default_value": false
+        },
+		
+		# The speed (°C/s) by which the nozzle heats up averaged over the window of normal printing temperatures and the standby temperature
+        # Note: copied from Ultimaker S5, do test to find out
+		"machine_nozzle_heat_up_speed": {
+            "default_value": 1.4
+        },
+		
+		# he speed (°C/s) by which the nozzle cools down averaged over the window of normal printing temperatures and the standby temperature
+        # Note: copied from Ultimaker S5, do test to find out
+		"machine_nozzle_cool_down_speed": {
+            "default_value": 0.8
+        },
+		
+		# Sets the diameter of the filament used
+		"material_diameter":
+        {
+			"default_value": 1.75
+		},
+        
+		# This setting tells Cura what the shape of your print head is, as seen from the top. This is necessary to prevent collisions when printing in one-at-a-time mode.
+		#
+		# his setting contains a list of coordinates that form a polygon. The coordinates are relative to the "position" of the head, to which the nozzles are also positioned relatively.
+        #
+        # Cura uses this to create a collision area around the objects you're printing in one-at-a-time mode. This collision area prevents you from placing objects too close to one another such that they can't be printed without the print head hitting the previously printed model. The collision area is not the same shape as the print head itself though: It will be a convex hull around the print head to prevent collisions during travel moves as well. It will also be shrunk to be symmetric. For instance, if the nozzle is more towards the left side of the print head (as in the above picture) then the collision area will be shrunk such that another object may be placed close to the right side of previously printed objects. The order in which these objects are printed will then be adjusted so that they can be printed without collisions.
+		# # (https://github.com/Ghostkeeper/SettingsGuide/blob/master/resources/articles/machine_settings/machine_head_with_fans_polygon.md)
+		
+		# Note: To check if these settings are correct. They are a direct copy from the left nozzle margins from Ideamaker
+		"machine_head_with_fans_polygon":
+        {
+            "default_value": [
+                [ -37, 45 ],
+                [  63, 45 ],
+                [ 63, -70 ],
+                [ -37 -70 ]
+            ]
+        },
+		
+		#The minimal time an extruder has to be inactive before the nozzle is cooled. Only when an extruder is not used for longer than this time will it be allowed to cool down to the standby temperature.
+		# Note: I don't knpw why this was set for so long for the Pro2
+        "machine_min_cool_heat_time_window": {
+            "default_value": 3600
+        },
+		
+		# The length of material retracted during a retraction move
+		# Copied from Ideamaker
+        "retraction_amount": {
+            "default_value": 1.5
+        },
+		
+		# Different options that help to improve both priming your extrusion and adhesion to the build plate. Brim adds a single layer flat area around the base of your model to prevent warping. Raft adds a thick grid with a roof below the model. Skirt is a line printed around the model, but not connected to the model. Options are skirt, brim, raft, none
+        "adhesion_type": {                  
+            "default_value": "skirt"        
+        },    
+		
+		# The height difference between the tip of the nozzle and the gantry system (X and Y axes)
+		# Currently the Pro2 height setting, to be measured
+        "gantry_height": {
+            "value": "55"
+        },
+		
+		# Apply the extruder offset to the coordinate system. Affects all extruders
+        "machine_use_extruder_offset_to_offset_coords": {
+            "default_value": true
+        },
+		
+		# The type of g-code to be generated
+        "machine_gcode_flavor": {
+            "default_value": "RepRap (RepRap)"
+        },
+		
+		# G-code commands to be executed at the very start
+        "machine_start_gcode": {
+            "default_value": "M221 T0 S90.00					; Set flow Percentage,  target extruder 0  Feedrate 90%\nM140 S55.00						; Set Bed Temperature (Fast) to 55C\nM104 T0 S205.00					; Set Extruder Temperature to 205C, target extruder 0 and continue immediately\nM109 T0 S205.00					; Set Extruder Temperature to 205C, target extruder 0 and wait \nT0								; Select tool 0\nM190 S55.00						; Wait for bed temperature to reach target temp, 55C\nM572 D0 S0.09					; Set or report extruder pressure advance, Extruder 0, Pressure advance amount 0.09s\nM572 D1 S0.09					; Set or report extruder pressure advance, Extruder 1, Pressure advance amount 0.09s\nG21								; Set Units to Millimeters\nG90								; Set to Absolute Positioning\nM82								; Set extruder to absolute mode\nM107							; Fan Off\nG28								; Return to home \nG1 Z0 F500						; Linear Move to Z=0, feedrate = 500mm/min (z move is dummy to set feedrate?)\nG92 E0							; Program absolute extruder position to 0\nG1 Z0.2 F400					; Linear Move to Z= 0.2mm, feedrate = 400mm/min \nG1 X60 Y-2 F800					; Linear Move to X=  60mm, Y = -2mm, feedrate = 800mm/min \nG1 X140 Y-2 E12 F200			; Linear Move to X= 140mm, Y = -2mm, feedrate = 200mm/min, extrude 12mm filament\nG1 Z5 E15 F200					; Linear Move to Z=   5mm, feedrate = 200mm/min, extrude 15mm filament\nG92 E0							; Program absolute extruder position to 0\nG1 F9000.0						; Set feedrate = 9000mm/min\nM117 Printing...				; Display Message \"Printing...\"\nM1001							; End of Start GCode\n"
+        },
+		
+		# G-code commands to be executed at the very end
+        "machine_end_gcode": {
+            "default_value": "M1002							; Beginning of End GCode.\nM104 T0 S0						; Set Extruder Temperature to 0, target extruder 0\nM104 T1 S0						; Set Extruder Temperature to 0, target extruder 1\nM221 T0 S100					; Set extrude factor override percentage, extruder 0, extrude override factor 100%\nM221 T1 S100					; Set extrude factor override percentage, extruder 0, extrude override factor 100%\nM104 S0							; Set Extruder Temperature to 0C\nM140 S0							; Set Bed Temperature (Fast) to 0C\nM117 Print Complete.			; Display Message \"Print Complete.\"\nM106 P2 S0						; Cooling fan On for fan 2, fan speed 0\nM107							; Fan Off\nG91								; Set to Relative Positioning\nG1 E-1 F300						; Retract 1 mm \nG1 Z+0.5 E-5 Y-20 F9000.00		; Move .5 mm up, retract 5mm further \nG28 X0 U0						; Return to home \nM84								; Stop idle hold, disable steppers until next move \nG90								; Set to Absolute Positioning"
+        },
+		
+		# Number of extruder trains. An extruder train is the combination of a feeder, bowden tube, and nozzle.
+        "machine_extruder_count": {
+            "default_value": 2
+        },
+		
+		# The x coordinate of the position of the prime tower		
+        # Note: Copied from Wipe tower fixed position in Ideamaker
+		"prime_tower_position_x": {
+            "default_value": 39.5
+        },
+		
+		# The y coordinate of the position of the prime tower
+		# Note: Copied from Wipe tower fixed position in Ideamaker
+        "prime_tower_position_y": {
+            "default_value": 280
+        },m
+		
+		# A list of polygons with areas the nozzle is not allowed to enter
+		# Note: may be necessary to avoid camera collisions?
+		#"machine_disallowed_areas": {
+        #    "default_value": [
+        #           ]
+        #},
+		
+    }
+}

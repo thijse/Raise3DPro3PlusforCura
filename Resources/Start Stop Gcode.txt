@@ -1,0 +1,43 @@
+M221 T0 S90.00					; Set flow Percentage,  target extruder 0  Feedrate 90%
+M140 S55.00						; Set Bed Temperature (Fast) to 55C
+M104 T0 S205.00					; Set Extruder Temperature to 205C, target extruder 0 and continue immediately
+M109 T0 S205.00					; Set Extruder Temperature to 205C, target extruder 0 and wait 
+T0								; Select tool 0
+M190 S55.00						; Wait for bed temperature to reach target temp, 55C
+M572 D0 S0.09					; Set or report extruder pressure advance, Extruder 0, Pressure advance amount 0.09s
+M572 D1 S0.09					; Set or report extruder pressure advance, Extruder 1, Pressure advance amount 0.09s
+G21								; Set Units to Millimeters
+G90								; Set to Absolute Positioning
+M82								; Set extruder to absolute mode
+M107							; Fan Off
+G28								; Return to home 
+G1 Z0 F500						; Linear Move to Z=0, feedrate = 500mm/min (z move is dummy to set feedrate?)
+G92 E0							; Program absolute extruder position to 0
+G1 Z0.2 F400					; Linear Move to Z= 0.2mm, feedrate = 400mm/min 
+G1 X60 Y-2 F800					; Linear Move to X=  60mm, Y = -2mm, feedrate = 800mm/min 
+G1 X140 Y-2 E12 F200			; Linear Move to X= 140mm, Y = -2mm, feedrate = 200mm/min, extrude 12mm filament
+G1 Z5 E15 F200					; Linear Move to Z=   5mm, feedrate = 200mm/min, extrude 15mm filament
+G92 E0							; Program absolute extruder position to 0
+G1 F9000.0						; Set feedrate = 9000mm/min
+M117 Printing...				; Display Message "Printing..."
+M1001							; End of Start GCode
+
+
+
+;  End Gcode				
+M1002							; Beginning of End GCode.
+M104 T0 S0						; Set Extruder Temperature to 0, target extruder 0
+M104 T1 S0						; Set Extruder Temperature to 0, target extruder 1
+M221 T0 S100					; Set extrude factor override percentage, extruder 0, extrude override factor 100%
+M221 T1 S100					; Set extrude factor override percentage, extruder 0, extrude override factor 100%
+M104 S0							; Set Extruder Temperature to 0C
+M140 S0							; Set Bed Temperature (Fast) to 0C
+M117 Print Complete.			; Display Message "Print Complete."
+M106 P2 S0						; Cooling fan On for fan 2, fan speed 0
+M107							; Fan Off
+G91								; Set to Relative Positioning
+G1 E-1 F300						; Retract 1 mm 
+G1 Z+0.5 E-5 Y-20 F9000.00		; Move .5 mm up, retract 5mm further 
+G28 X0 U0						; Return to home 
+M84								; Stop idle hold, disable steppers until next move 
+G90								; Set to Absolute Positioning
