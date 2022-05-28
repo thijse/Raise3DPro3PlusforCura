@@ -10,32 +10,32 @@ This Github is an ongoing effort to create a good printer profile for the Raise3
 It is my hope that other people will try out and help tune the profile untill the quality is as good as can be expected from the printer.
 
 # Directory structure
-- Installer
+* Installer
 The installer requires InnoSetup to be present. It will  install the printer profile for all installed instances of Cura. Currently it has only been tested for Windows 10, but will likely work for other versions as well.  
-- Resources
+* Resources
 Here you can find or place resources that are/were used to create the profile. 
-- Cura 
+* Cura 
 This contains the actual definitions. Release contains the current state of the art, whereas the Archive folder holds older versions. Of course all changes are captured by git, but I found it usefull to keep the older versions to easily compare against.
---Cura/Archive/V1
+ * Cura/Archive/V1
 The first basic profile created based on IdeaMaker settings and Pro2 efforts. Start & Stop G-code was extracted from Ideamaker @version. The first 2 benchies failed due to insufficient build plate adhesion. 
---Cura/Archive/V2
+ * Cura/Archive/V2
 Updated profile with settings from Ultimaker S5 & Creatility, added quality variants, nozzle variants & materials (based on Creality). This produced the first succesfull Benchy! The bottom looked good,but the benchy had a very strong  hull line, ugly overhangs and with clear drooping and the bridging locations.
--- Cura/Release
+ * Cura/Release
 contains the current state-of-the-art. All notes, issues & todo's below target this version 
 
 # Current status
-- Integrated Ultimaker S5 settings in definitions. This strongly improved the print quality. The benchys first layer was significantly better, the hull was much smoother, no adhesion issues. 
-- Added Raise3D base plate
-- Set default cooling fan speed to 100% (instead of 50%) significantly improves the benchy test, in particular the hull, overhangs and bridges. 
+* Integrated Ultimaker S5 settings in definitions. This strongly improved the print quality. The benchys first layer was significantly better, the hull was much smoother, no adhesion issues. 
+* Added Raise3D base plate
+* Set default cooling fan speed to 100% (instead of 50%) significantly improves the benchy test, in particular the hull, overhangs and bridges. 
 
 # To do
-- Validate the geometry settings. Try out by placing objects at the edge of the build plate, can we cover the same area as in Ideamaker, this area should be different for nozzle 1 & 2.
-- Try "One at a Time" printing. I have little experience with this, but I imagine it requires that when printing the 2nd part, 1) not bumping the gantry into the first part, 2) if the first object is tall enough,  not hitting it with the crossbars. I believe this means getting gantry_height and machine_head_with_fans_polygon correct. I expect the current values are about correct, but for machine_head_with_fans_polygon I'm not clear what origin is. Is it nozzle 1? And how does that work when printing with nozzle 2?
-- Try out if the cooling fans are separately adressed. Currently 
-- Interpret the Start G-code and improve annotation. Send out G codes manually, what are the moves doing? Is this the best G-code possible, or do we want to for example do what Cura is doing, by printing a test strip before starting.
-- Test and tune the profiles for any material, see section validating materials
-- Debug possible issue: The benchy print completes without any issues, but the next print will not extrude correctly. Unloading & reloading seems to solve the issue. Is this an issue in the end G-code or is an issue with the (budget) PLA.
-- The benchy still has some issues at the infamous the Benchy hull line. Following the [investigation by Prusa](	
+* Validate the geometry settings. Try out by placing objects at the edge of the build plate, can we cover the same area as in Ideamaker, this area should be different for nozzle 1 & 2.
+* Try "One at a Time" printing. I have little experience with this, but I imagine it requires that when printing the 2nd part, 1) not bumping the gantry into the first part, 2) if the first object is tall enough,  not hitting it with the crossbars. I believe this means getting `gantry_height` and `machine_head_with_fans_polygon` correct. I expect the current values are about correct, but for `machine_head_with_fans_polygon` I'm not clear what origin is. Is it nozzle 1? And how does that work when printing with nozzle 2?
+* Try out if the cooling fans are separately adressed. Currently 
+* Interpret the Start G-code and improve annotation. Send out G codes manually, what are the moves doing? Is this the best G-code possible, or do we want to for example do what Cura is doing, by printing a test strip before starting.
+* Test and tune the profiles for any material, see section validating materials
+* Debug possible issue: The benchy print completes without any issues, but the next print will not extrude correctly. Unloading & reloading seems to solve the issue. Is this an issue in the end G-code or is an issue with the (budget) PLA.
+* The benchy still has some issues at the infamous the Benchy hull line. Following the [investigation by Prusa](	
 https://help.prusa3d.com/article/the-benchy-hull-line_124745) and the [suggestions by GhostKeeper](https://github.com/Ultimaker/Cura/issues/9244), snd see if this will improve the print. Because the line relates to the material shrinkage and the object geometry, this should be a tuning for the benchy only. 
 
 # Want to help?
