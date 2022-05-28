@@ -16,9 +16,9 @@ The installer requires InnoSetup to be present. It will  install the printer pro
 Here you can find or place resources that are/were used to create the profile. 
 * Cura 
 This contains the actual definitions. Release contains the current state of the art, whereas the Archive folder holds older versions. Of course all changes are captured by git, but I found it usefull to keep the older versions to easily compare against.
- * Cura/Archive/V1
+ ** Cura/Archive/V1
 The first basic profile created based on IdeaMaker settings and Pro2 efforts. Start & Stop G-code was extracted from Ideamaker @version. The first 2 benchies failed due to insufficient build plate adhesion. 
- * Cura/Archive/V2
+ ** Cura/Archive/V2
 Updated profile with settings from Ultimaker S5 & Creatility, added quality variants, nozzle variants & materials (based on Creality). This produced the first succesfull Benchy! The bottom looked good,but the benchy had a very strong  hull line, ugly overhangs and with clear drooping and the bridging locations.
  * Cura/Release
 contains the current state-of-the-art. All notes, issues & todo's below target this version 
