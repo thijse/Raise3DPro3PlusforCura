@@ -41,9 +41,8 @@ https://help.prusa3d.com/article/the-benchy-hull-line_124745) and the [suggestio
 # Want to help?
 Picking up any of the items from the todo list would be hugely appreciated! Doing test prints with different materials and different qualities and making pictures would help as well!
 
-Some pointers on editting the 
-
-It's quite easy to make mistakes in the json syntax, so please use a json lint tool to check it
+Some pointers on editting the definition file:
+It's easy to make mistakes in the json syntax, so please use a json lint tool to check it after editting
 https://www.jslint.com/
 
 The Start & Stop G-code is defined in definition.json, and is escaped. If you want to change the code you can extract the G-code from definitions.json, unescape it, make your edits, escape it and plug the changes back in
