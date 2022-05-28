@@ -10,18 +10,18 @@ This Github is an ongoing effort to create a good printer profile for the Raise3
 It is my hope that other people will try out and help tune the profile untill the quality is as good as can be expected from the printer.
 
 # Directory structure
-* Installer
+* **Installer**
 The installer requires InnoSetup to be present. It will  install the printer profile for all installed instances of Cura. Currently it has only been tested for Windows 10, but will likely work for other versions as well.  
-* Resources
+* **Resources**
 Here you can find or place resources that are/were used to create the profile. 
-* Cura 
-This contains the actual definitions. Release contains the current state of the art, whereas the Archive folder holds older versions. Of course all changes are captured by git, but I found it usefull to keep the older versions to easily compare against.
-   * Cura/Archive/V1
+* **Cura**
+This contains the actual definitions. **Current** contains the current state of the art, whereas the **Archive** folder holds older versions. Of course all changes are captured by git, but I found it usefull to keep the older versions to easily compare against. Each version has a **Release** folder, containing the definitions and a **Results folder** containing photo's and descriptions of the print results.
+   * **Cura/Archive/V1**
 The first basic profile created based on IdeaMaker settings and Pro2 efforts. Start & Stop G-code was extracted from Ideamaker (4.2.3). The first 2 benchies failed due to insufficient build plate adhesion. 
-   * Cura/Archive/V2
+   * **Cura/Archive/V2**
 Updated profile with settings from Ultimaker S5 & Creatility, added quality variants, nozzle variants & materials (based on Creality). This produced the first succesfull Benchy! The bottom looked good,but the benchy had a very strong  hull line, ugly overhangs and with clear drooping and the bridging locations.
- * Cura/Release
-contains the current state-of-the-art. All notes, issues & todo's below target this version 
+ * **Cura/Current**
+contains the current state-of-the-art. All notes, issues & todo's below target this version. 
 
 # Current status
 * Integrated Ultimaker S5 settings in definitions. This strongly improved the print quality. The benchys first layer was significantly better, the hull was much smoother, no adhesion issues. 
