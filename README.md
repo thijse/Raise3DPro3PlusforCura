@@ -20,6 +20,9 @@ This contains the actual definitions. **Current** contains the current state of 
 The first basic profile created based on IdeaMaker settings and Pro2 efforts. Start & Stop G-code was extracted from Ideamaker (4.2.3). The first 2 benchies failed due to insufficient build plate adhesion. 
    * **Cura/Archive/V2**
 Updated profile with settings from Ultimaker S5 & Creatility, added quality variants, nozzle variants & materials (based on Creality). This produced the first succesfull Benchy! The bottom looked good,but the benchy had a very strong  hull line, ugly overhangs and with clear drooping and the bridging locations.
+
+![Benchy hull line](/Cura/Archive/v2/Results/IMG_1433.jpg)
+
  * **Cura/Current**
 contains the current state-of-the-art. All notes, issues & todo's below target this version. 
 
