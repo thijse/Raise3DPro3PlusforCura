@@ -31,6 +31,9 @@ contains the current state-of-the-art. All notes, issues & todo's below target t
 * Added Raise3D base plate
 * Set default cooling fan speed to 100% (instead of 50%) significantly improves the benchy test, in particular the hull, overhangs and bridges. 
 
+![Benchy hull line_current](/Cura/Current/Results/IMG_1443.JPG)
+
+
 # To do
 * Validate the geometry settings. Try out by placing objects at the edge of the build plate, can we cover the same area as in Ideamaker, this area should be different for nozzle 1 & 2.
 * Try "One at a Time" printing. I have little experience with this, but I imagine it requires that when printing the 2nd part, 1) not bumping the gantry into the first part, 2) if the first object is tall enough,  not hitting it with the crossbars. I believe this means getting `gantry_height` and `machine_head_with_fans_polygon` correct. I expect the current values are about correct, but for `machine_head_with_fans_polygon` I'm not clear what origin is. Is it nozzle 1? And how does that work when printing with nozzle 2?
