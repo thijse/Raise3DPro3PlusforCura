@@ -62,4 +62,4 @@ https://www.jslint.com/
 The Start & Stop G-code is defined in definition.json, and is escaped. If you want to change the code you can extract the G-code from definitions.json, unescape it, make your edits, escape it and plug the changes back in
 https://www.freeformatter.com/json-escape.html
 
-If you have made changes to your local repository and you want to test them, you can of course deploy them by compiling the .iss installer and running it. Because that is a relatively slow process, you can also use the [Installer/copy definitions.bat](/Installer/copy definitions.bat)) script. This will copy the definitions directly to your cura appdata directory. NOTE: you need to change the script to copy to your preferred version. 
+If you have made changes to your local repository and you want to test them, you can of course deploy them by compiling the .iss installer and running it. Because that is a relatively slow process, you can also use the ![Installer/copy definitions.bat](/Installer/copy definitions.bat) script. This will copy the definitions directly to your cura appdata directory. NOTE: you need to change the script to copy to your preferred version. 
