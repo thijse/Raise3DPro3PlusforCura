@@ -4,7 +4,7 @@
 #define MyFolderName   "Cura"
 #define MyAppPublisher "Thijs Elenbaas"
 #define MyVersion      "1.0"
-#define SourceFolder   "..\Cura\Pro3plus_v2\Release"
+#define SourceFolder   "..\Cura\Current\Release"
 
 [Setup]
 PrivilegesRequired              =admin 
@@ -31,6 +31,7 @@ OutputBaseFilename              =Cura_Setup
 ArchitecturesInstallIn64BitMode =x64
 
 
+; the script CopyToCuraDirs is connected to a dummy file, otherwise it is called for each copied file
 [Files]
 Source: "{#SourceFolder}\*"; DestDir: "{tmp}\Cura"; Flags: createallsubdirs recursesubdirs; Tasks: addPrinter
 Source: "dummy.txt"; DestDir: "{tmp}"; Tasks: addPrinter; AfterInstall: CopyToCuraDirs
@@ -39,6 +40,7 @@ Source: "dummy.txt"; DestDir: "{tmp}"; Tasks: addPrinter; AfterInstall: CopyToCu
 Name: "addPrinter"; Description: "&Add Raise3D Pro+ printer."; Flags: checkablealone
 
 [Code]
+
 
 procedure DirectoryCopy(SourcePath, DestPath: string);
 var
