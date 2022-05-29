@@ -41,7 +41,7 @@ Name: "addPrinter"; Description: "&Add Raise3D Pro+ printer."; Flags: checkablea
 
 [Code]
 
-
+// Recursive copier that copies all files and folder and their childeren
 procedure DirectoryCopy(SourcePath, DestPath: string);
 var
   FindRec: TFindRec;
@@ -92,6 +92,8 @@ begin
   end;
 end;
 
+
+// Function to copy a folder to all subfolders in destination
 function CopyToAllFolders(const Path: string; const fromPath: string): Boolean;
 var
   FindRec   : TFindRec;
@@ -121,6 +123,9 @@ begin
   end;
 end;
 
+// This function copies the directory structure that was unpacked in the temp file 
+// Into all Cura userdata directories
+// todo: only copy to latest (e.g. 4.x and 5.x)
 procedure CopyToCuraDirs();
 var
   RootPath: string;
