@@ -20,6 +20,11 @@ This contains the actual definitions. **Current** contains the current state of 
 The first basic profile created based on IdeaMaker settings and Pro2 efforts. Start & Stop G-code was extracted from Ideamaker (4.2.3). The first 2 benchies failed due to insufficient build plate adhesion. 
    * **Cura/Archive/V2**
 Updated profile with settings from Ultimaker S5 & Creatility, added quality variants, nozzle variants & materials (based on Creality). This produced the first succesfull Benchy! The bottom looked good,but the benchy had a very strong  hull line, ugly overhangs and with clear drooping and the bridging locations.
+
+Hull line of benchy (more images can be found in [/Cura/Archive/v2/Results/](/Cura/Archive/v2/Results/):
+
+![Benchy hull line](/Cura/Archive/v2/Results/IMG_1433.JPG)
+
  * **Cura/Current**
 contains the current state-of-the-art. All notes, issues & todo's below target this version. 
 
@@ -27,6 +32,10 @@ contains the current state-of-the-art. All notes, issues & todo's below target t
 * Integrated Ultimaker S5 settings in definitions. This strongly improved the print quality. The benchys first layer was significantly better, the hull was much smoother, no adhesion issues. 
 * Added Raise3D base plate
 * Set default cooling fan speed to 100% (instead of 50%) significantly improves the benchy test, in particular the hull, overhangs and bridges. 
+
+The benchy hull line (more images can be found in [/Cura/Current/Results/](/Cura/Current/Results/))
+![Benchy hull line_current](/Cura/Current/Results/IMG_1443.JPG)
+
 
 # To do
 * Validate the geometry settings. Try out by placing objects at the edge of the build plate, can we cover the same area as in Ideamaker, this area should be different for nozzle 1 & 2.
