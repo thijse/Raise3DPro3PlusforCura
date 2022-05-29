@@ -36,19 +36,20 @@ contains the current state-of-the-art. All notes, issues & todo's below target t
 The benchy hull line (more images can be found in [/Cura/Current/Results/](/Cura/Current/Results/))
 ![Benchy hull line_current](/Cura/Current/Results/IMG_1443.JPG)
 
-
 # To do
+* **Debug possible issue: The benchy print completes without any issues, but the next print will not extrude correctly. Unloading & reloading seems to solve the issue. Is this an issue in the end G-code? Is there something relevant in Or is an issue with the (budget) PLA? **
+* Test and tune the profiles for any material.
+*  The benchy still has some issues at the infamous the Benchy hull line. Following the [investigation by Prusa](	
+https://help.prusa3d.com/article/the-benchy-hull-line_124745) and the [suggestions by GhostKeeper](https://github.com/Ultimaker/Cura/issues/9244), tune and see if this will improve the print. Because the line is related to the material shrinkage and the object geometry, I expect this should be a tuning for the benchy only and not a printer/material profile setting. 
 * Validate the geometry settings. Try out by placing objects at the edge of the build plate, can we cover the same area as in Ideamaker, this area should be different for nozzle 1 & 2.
 * Try "One at a Time" printing. I have little experience with this, but I imagine it requires that when printing the 2nd part, 1) not bumping the gantry into the first part, 2) if the first object is tall enough,  not hitting it with the crossbars. I believe this means getting `gantry_height` and `machine_head_with_fans_polygon` correct. I expect the current values are about correct, but for `machine_head_with_fans_polygon` I'm not clear what origin is. Is it nozzle 1? And how does that work when printing with nozzle 2?
-* Try out if the cooling fans are separately adressed. Currently 
-* Interpret the Start G-code and improve annotation. Send out G codes manually, what are the moves doing? Is this the best G-code possible, or do we want to for example do what Cura is doing, by printing a test strip before starting.
-* Test and tune the profiles for any material, see section validating materials
-* Debug possible issue: The benchy print completes without any issues, but the next print will not extrude correctly. Unloading & reloading seems to solve the issue. Is this an issue in the end G-code or is an issue with the (budget) PLA.
-* The benchy still has some issues at the infamous the Benchy hull line. Following the [investigation by Prusa](	
-https://help.prusa3d.com/article/the-benchy-hull-line_124745) and the [suggestions by GhostKeeper](https://github.com/Ultimaker/Cura/issues/9244), snd see if this will improve the print. Because the line relates to the material shrinkage and the object geometry, this should be a tuning for the benchy only. 
+* Try out if the cooling fans are separately adressed. 
+* Interpret the Start G-code and improve the  annotation. Send out G codes manually, what are the moves doing? Is this the best G-code possible, or do we want to for example do what Cura is doing, by printing a test strip before starting.
+* Add a Pro 3 non-plus profile. This will very like just mean adjusting the printer height
+* Add faster profiles. I expect that more speed can be teased out of the printer with reasonable quality. But this is something to be tested out only after the baseline prints look good.
 
 # Want to help?
-Picking up any of the items from the todo list would be hugely appreciated! Doing test prints with different materials and different qualities and making pictures would help as well!
+Picking up any of the items from the todo list would be hugely appreciated! Doing test prints with different materials and different qualities and making pictures would be immensely usefull!
 
 Some pointers on editting the definition file:
 It's easy to make mistakes in the json syntax, so please use a json lint tool to check it after editting
