@@ -1,0 +1,15 @@
+
+- Check the speed (°C/s) by which the nozzle heats up and cools down 
+   "machine_nozzle_heat_up_speed": {
+   "machine_nozzle_cool_down_speed"
+- Check if "machine_head_with_fans_polygon" setting is correct. In particular how to use with 2nd nozzle
+- "machine_min_cool_heat_time_window" I don't knpw why this was set for so long for the Pro2, check      
+- check materials warning  "no profiles matching the configuration of this extruder"
+- Check the length of material retracted during a retraction move copied from Ideamaker
+
+- Does the 2nd extruder have its own fan?
+  "machine_extruder_cooling_fan_number" : { "default_value": 1 }
+  
+ - Create platform & logo
+ 
+- There is a list of polygons with areas the nozzle is not allowed to enter, may be necessary to avoid camera collisions? #"machine_disallowed_areas"
