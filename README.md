@@ -37,7 +37,7 @@ The benchy hull line (more images can be found in [/Cura/Current/Results/](/Cura
 ![Benchy hull line_current](/Cura/Current/Results/IMG_1443.JPG)
 
 # To do
-- **Debug possible issue: The benchy print completes without any issues, but the next print will not extrude correctly. Unloading & reloading seems to solve the issue. Is this an issue in the end G-code? Is there something relevant in Or is an issue with the (budget) PLA? **
+**Debug possible issue: The benchy print completes without any issues, but the next print will not extrude correctly. Unloading & reloading seems to solve the issue. Is this an issue in the end G-code? Is there something relevant in Or is an issue with the (budget) PLA?**
 * Test and tune the profiles for any material.
 *  The benchy still has some issues at the infamous the Benchy hull line. Following the [investigation by Prusa](	
 https://help.prusa3d.com/article/the-benchy-hull-line_124745) and the [suggestions by GhostKeeper](https://github.com/Ultimaker/Cura/issues/9244), tune and see if this will improve the print. Because the line is related to the material shrinkage and the object geometry, I expect this should be a tuning for the benchy only and not a printer/material profile setting. 
