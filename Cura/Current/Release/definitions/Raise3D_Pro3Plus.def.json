@@ -18,7 +18,7 @@
 		"supports_usb_connection": true,
         "supports_network_connection": true,
         "supports_material_export": true,
-		"has_materials": false,
+		"has_materials": true,
         "has_variants": true,
         "has_machine_quality": true,
         "variants_name": "Nozzle Size",
