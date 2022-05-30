@@ -11,7 +11,7 @@ It is my hope that other people will try out and help tune the profile untill th
 
 # Directory structure
 * **Installer**
-The installer requires InnoSetup to be present. It will  install the printer profile for all installed instances of Cura. Currently it has only been tested for Windows 10, but will likely work for other versions as well.  
+The installer requires InnoSetup to be compiled. It will  install the printer profile for all installed instances of Cura. Currently it has only been tested for Windows 10, but will likely work for other versions as well.  
 * **Resources**
 Here you can find or place resources that are/were used to create the profile. 
 * **Cura**
@@ -19,7 +19,7 @@ This contains the actual definitions. **Current** contains the current state of 
    * **Cura/Archive/V1**
 The first basic profile created based on IdeaMaker settings and Pro2 efforts. Start & Stop G-code was extracted from Ideamaker (4.2.3). The first 2 benchies failed due to insufficient build plate adhesion. 
    * **Cura/Archive/V2**
-Updated profile with settings from Ultimaker S5 & Creatility, added quality variants, nozzle variants & materials (based on Creality). This produced the first succesfull Benchy! The bottom looked good,but the benchy had a very strong  hull line, ugly overhangs and with clear drooping and the bridging locations.
+Updated profile with settings from Ultimaker S5 & Creality, added quality variants, nozzle variants & materials (based on Creality materials). This produced the first succesful Benchy! The bottom looked good,but the benchy had a very strong  hull line, ugly overhangs and with clear drooping and the bridging locations.
 
 Hull line of benchy (more images can be found in [/Cura/Archive/v2/Results/](/Cura/Archive/v2/Results/):
 
@@ -37,19 +37,19 @@ The benchy hull line (more images can be found in [/Cura/Current/Results/](/Cura
 ![Benchy hull line_current](/Cura/Current/Results/IMG_1443.JPG)
 
 # To do
-* **Debug possible issue: The benchy print completes without any issues, but the next print will not extrude correctly. Unloading & reloading seems to solve the issue. Is this an issue in the end G-code? Is there something relevant in Or is an issue with the (budget) PLA?**
+* **Debug possible issue: The benchy print completes without any issues, but the next print will not extrude correctly. Unloading & reloading  of material seems to solve the issue. Is this an issue in the end G-code? Or is an issue with the (budget) PLA?**
+* The current start G-code heats up both nozzles, regardless if they are used or not. Find a way to use different Start G-code, depending on whether the second nozzle is used or not.  
 * Test and tune the profiles for any material.
 *  The benchy still has some issues at the infamous the Benchy hull line. Following the [investigation by Prusa](	
 https://help.prusa3d.com/article/the-benchy-hull-line_124745) and the [suggestions by GhostKeeper](https://github.com/Ultimaker/Cura/issues/9244), tune and see if this will improve the print. Because the line is related to the material shrinkage and the object geometry, I expect this should be a tuning for the benchy only and not a printer/material profile setting. 
-* Validate the geometry settings. Try out by placing objects at the edge of the build plate, can we cover the same area as in Ideamaker, this area should be different for nozzle 1 & 2.
+* Validate the geometry settings. Try out by placing objects at the edge of the build plate. can we cover the same area as in Ideamaker (this area should be different for nozzle 1 & 2)?
 * Try "One at a Time" printing. I have little experience with this, but I imagine it requires that when printing the 2nd part, 1) not bumping the gantry into the first part, 2) if the first object is tall enough,  not hitting it with the crossbars. I believe this means getting `gantry_height` and `machine_head_with_fans_polygon` correct. I expect the current values are about correct, but for `machine_head_with_fans_polygon` I'm not clear what origin is. Is it nozzle 1? And how does that work when printing with nozzle 2?
 * Try out if the cooling fans are separately adressed. 
-* Interpret the Start G-code and improve the  annotation. Send out G codes manually, what are the moves doing? Is this the best G-code possible, or do we want to for example do what Cura is doing, by printing a test strip before starting.
-* Add a Pro 3 non-plus profile. This will very like just mean adjusting the printer height
-* Add faster profiles. I expect that more speed can be teased out of the printer with reasonable quality. But this is something to be tested out only after the baseline prints look good.
+* Add a Pro 3 non-plus profile. This will very like just mean adjusting the printer height.
+* Add faster profiles. I expect that more speed can be teased out of the printer with reasonable quality. However, this is something to be tested out only after the baseline prints look good.
 
 # Want to help?
-Picking up any of the items from the todo list would be hugely appreciated! Doing test prints with different materials and different qualities and making pictures would be immensely usefull!
+Picking up any of the items from the todo list would be hugely appreciated! Doing test prints with different materials and different qualities and making pictures would be immensely useful!
 
 Some pointers on editting the definition file:
 If you have changes in the settings from within Cura, they have not updated our definition files. Instead, these changes have been saved in 
