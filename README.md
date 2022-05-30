@@ -38,7 +38,7 @@ The benchy hull line (more images can be found in [/Cura/Current/Results/](/Cura
 
 # To do
 * **Debug possible issue: The benchy print completes without any issues, but the next print will not extrude correctly. Unloading & reloading  of material seems to solve the issue. Is this an issue in the end G-code? Or is an issue with the (budget) PLA?**
-* The current start G-code heats up both nozzles, regardless if they are used or not. Find a way to use different Start G-code, depending on whether the second nozzle is used or not.  
+* The current start G-code heats up both nozzles, regardless if they are used or not. Find a way to use different Start G-code, depending on whether the second nozzle is used or not. This means, for example, that the 2nd nozzle needs to be loaded with material in order to not get a 'filament runout' message.
 * Test and tune the profiles for any material.
 *  The benchy still has some issues at the infamous the Benchy hull line. Following the [investigation by Prusa](	
 https://help.prusa3d.com/article/the-benchy-hull-line_124745) and the [suggestions by GhostKeeper](https://github.com/Ultimaker/Cura/issues/9244), tune and see if this will improve the print. Because the line is related to the material shrinkage and the object geometry, I expect this should be a tuning for the benchy only and not a printer/material profile setting. 
