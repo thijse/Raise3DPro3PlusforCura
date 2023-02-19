@@ -1,0 +1,22 @@
+{
+	"name": "Raise3D Pro3 Plus Single",
+	"version": 2,
+	"inherits": "Raise3D_Pro3_Base",
+	"overrides": {
+		"machine_name": { "default_value": "Raise3D Pro3 Plus Single"},
+		"machine_extruder_count": { "default_value": 1 },
+		"machine_start_gcode": {
+			"default_value": "; Start code single extruder\r\nM572 D0 S0.09\t\t; Set or report extruder pressure advance, Extruder 0, Pressure advance amount 0.09\r\nM572 D1 S0.09\t\t; Set or report extruder pressure advance, Extruder 1, Pressure advance amount 0.09\r\nG21\t\t\t; Set Units to Millimeters\r\nG90\t\t\t; Set to Absolute Positioning\r\nM82\t\t\t; Set extruder to absolute mode\r\nM107\t\t\t; Fan Off\r\nG28\t\t\t; Return to home \r\nG1 Z0 F500\t\t\t; Linear Move to Z=0, feedrate = 500mm\/min (z move is dummy to set feedrate?)\r\nT0\t\t\t; Select tool 0\r\nG92 E0\t\t\t; Program absolute extruder position to 0\r\nG1 Z0.2 F400\t\t; Linear Move to Z= 0.2mm, feedrate = 400mm\/min \r\nG1 X60 Y-2 F800\t\t; Linear Move to X=  60mm, Y = -2mm, feedrate = 800mm\/min \r\nG1 X140 Y-2 E12 F200\t\t; Linear Move to X= 140mm, Y = -2mm, feedrate = 200mm\/min, extrude 12mm filament\r\nG1 Z5 E15 F200\t\t; Linear Move to Z=   5mm, feedrate = 200mm\/min, extrude 15mm filament\r\nG92 E0\t\t\t; Program absolute extruder position to 0\r\nG1 F500.0\t\t\t; Set feedrate = 500mm\/min\r\nM117 Printing...\t\t; Display Message \"Printing...\"\r\nM1001\t\t\t; End of Start GCode"
+		},
+		"machine_end_gcode": {
+			"default_value": "; End code single extruder\r\nM1002\t\t\t; Beginning of End GCode.\r\nM221 T0 S100\t\t; Set extrude factor override percentage, extruder 0, extrude override factor 100%\r\nM104 S0\t\t\t; Set Extruder Temperature to 0C\r\nM140 S0\t\t\t; Set Bed Temperature (Fast) to 0C\r\nM117 Print Complete.\t\t; Display Message \"Print Complete.\"\r\nM106 P2 S0\t\t\t; Cooling fan On for fan 2, fan speed 0\r\nM107\t\t\t; Fan Off\r\nG91\t\t\t; Set to Relative Positioning\r\nG1 E-1 F300\t\t\t; Retract 1 mm \r\nG1 Z+0.5 E-5 Y-20 F9000.00\t; Move .5 mm up, retract 5mm further \r\nG28 X0 U0\t\t\t; Return to home \r\nM84\t\t\t; Stop idle hold, disable steppers until next move \r\nG90\t\t\t; Set to Absolute Positioning"
+		}
+	},
+	"metadata": {
+		"quality_definition": "Raise3D_Pro3_Base",
+		"visible": true,
+		"machine_extruder_trains": {
+			"0": "Raise3D_Pro3_Base_extruder_left"
+		}
+	}
+}
