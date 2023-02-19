@@ -1,0 +1,9 @@
+﻿[Common]
+BasePath=""
+
+[Profiles]
+[Profiles.04]
+Name="Profile 4"
+PathA=""
+PathB=""
+DuplicateBehaviour="UseA"

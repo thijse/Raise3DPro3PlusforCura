@@ -38,14 +38,12 @@ The benchy hull line (more images can be found in [/Cura/Current/Results/](/Cura
 
 # To do
 * **Debug possible issue: The benchy print completes without any issues, but the next print will not extrude correctly. Unloading & reloading  of material seems to solve the issue. Is this an issue in the end G-code? Or is an issue with the (budget) PLA?**
-* The current start G-code heats up both nozzles, regardless if they are used or not. Find a way to use different Start G-code, depending on whether the second nozzle is used or not.  
 * Test and tune the profiles for any material.
-*  The benchy still has some issues at the infamous the Benchy hull line. Following the [investigation by Prusa](	
-https://help.prusa3d.com/article/the-benchy-hull-line_124745) and the [suggestions by GhostKeeper](https://github.com/Ultimaker/Cura/issues/9244), tune and see if this will improve the print. Because the line is related to the material shrinkage and the object geometry, I expect this should be a tuning for the benchy only and not a printer/material profile setting. 
+*  The benchy still has some minor issues at the infamous the Benchy hull line. Following the [investigation by Prusa](	
+https://help.prusa3d.com/article/the-benchy-hull-line_124745) and the [suggestions by GhostKeeper](https://github.com/Ultimaker/Cura/issues/9244), tune and see if this will improve the print. Because the line is related to the material shrinkage and the object geometry, I expect this should be a tuning for the benchy only and not a printer/material profile setting.
 * Validate the geometry settings. Try out by placing objects at the edge of the build plate. can we cover the same area as in Ideamaker (this area should be different for nozzle 1 & 2)?
 * Try "One at a Time" printing. I have little experience with this, but I imagine it requires that when printing the 2nd part, 1) not bumping the gantry into the first part, 2) if the first object is tall enough,  not hitting it with the crossbars. I believe this means getting `gantry_height` and `machine_head_with_fans_polygon` correct. I expect the current values are about correct, but for `machine_head_with_fans_polygon` I'm not clear what origin is. Is it nozzle 1? And how does that work when printing with nozzle 2?
-* Try out if the cooling fans are separately adressed. 
-* Add a Pro 3 non-plus profile. This will very like just mean adjusting the printer height.
+* Try out if the cooling fans are separately adressed.
 * Add faster profiles. I expect that more speed can be teased out of the printer with reasonable quality. However, this is something to be tested out only after the baseline prints look good.
 
 # Want to help?

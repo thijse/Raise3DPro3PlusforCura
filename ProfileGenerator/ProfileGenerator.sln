@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32407.343
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProfileGenerator", "ProfileGenerator.csproj", "{19D532BA-6283-49FD-B4D1-66BBE6A9B190}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{19D532BA-6283-49FD-B4D1-66BBE6A9B190}.Debug|x64.ActiveCfg = Debug|x64
+		{19D532BA-6283-49FD-B4D1-66BBE6A9B190}.Debug|x64.Build.0 = Debug|x64
+		{19D532BA-6283-49FD-B4D1-66BBE6A9B190}.Release|x64.ActiveCfg = Release|x64
+		{19D532BA-6283-49FD-B4D1-66BBE6A9B190}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {244F50F8-524A-4D5D-8041-BE7DB851E407}
+	EndGlobalSection
+EndGlobal
