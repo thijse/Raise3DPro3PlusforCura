@@ -11,7 +11,7 @@ It is my hope that other people will try out and help tune the profile untill th
 
 # Current status
 Current (v0.3)
-* **First release!  [installer can be found here](/releases/tag/Pre-release)**
+* **First release!  [installer can be found here](../releases/tag/Pre-release)**
 * Solved issue in end G-code that resulted in full unloading of material
 * Created single (left) nozzle & dual nozzle variants, which different start & stop G-code. The the dual nozzle prepares and heats both nozzles before print
 * Split definition in base profile and printers (3DPro & 3DPro Plus, single nozzle & dual nozzle) 
