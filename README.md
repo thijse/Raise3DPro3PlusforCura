@@ -51,7 +51,7 @@ Picking up any of the items from the todo list would be hugely appreciated! Doin
 
 Some pointers on editting the definition file:
 If you have changes in the settings from within Cura, they have not updated our definition files. Instead, these changes have been saved in 
-`C:\Users\Thijs\AppData\Roaming\cura\4.13\user` and `C:\Users\Thijs\AppData\Roaming\cura\4.13\definition_changes`
+`C:\Users\<USERNAME>\AppData\Roaming\cura\4.13\user` and `C:\Users\<USERNAME>\AppData\Roaming\cura\4.13\definition_changes`
 Look for recently changed files, that are likely called something like `Raise3D_Pro3Plus<something>_user.inst.cfg`
 
 It's easy to make mistakes in the json syntax, so please use a json lint tool to check it after editting

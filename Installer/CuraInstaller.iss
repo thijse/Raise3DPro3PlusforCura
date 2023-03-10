@@ -37,7 +37,7 @@ Source: "{#SourceFolder}\*"; DestDir: "{tmp}\Cura"; Flags: createallsubdirs recu
 Source: "dummy.txt"; DestDir: "{tmp}"; Tasks: addPrinter; AfterInstall: CopyToCuraDirs
 
 [Tasks]
-Name: "addPrinter"; Description: "&Add Raise3D Pro+ printer."; Flags: checkablealone
+Name: "addPrinter"; Description: "&Add Raise3D Pro 3 (Plus) printers."; Flags: checkablealone
 
 [Code]
 
