@@ -1,23 +1,23 @@
-﻿using ProfileGenerator;
-using System.Resources;
+﻿using Newtonsoft.Json.Linq;
+using ProfileGenerator;
+using System.Text.Json;
 using static ProfileGenerator.ProfileGenerator;
 
 var basePrinterName = "Raise3D_Pro3_Base";
-var printerNames = new string[] { "Raise3D_Pro3Plus_Dual", "Raise3D_Pro3Plus_Single", "Raise3D_Pro3_Dual", "Raise3D_Pro3_Single" };
+var printerNames    = new string[] { "Raise3D_Pro3Plus_Dual", "Raise3D_Pro3Plus_Single", "Raise3D_Pro3_Dual", "Raise3D_Pro3_Single" };
 
 ConsoleOut.Initialize();
 Console.WriteLine("Generating new printer definitions");
 
 CreateNozzles();
-
+InsertGCode();
 //CreateVariantFiles();
 //CreateQualityFiles();
 
 void CreateNozzles()
 {
-    var nozzleSizes = new string[] { "0.3", "0.4", "0.5", "0.6", "0.8", "1.0" };
-
-    var iniConfig = new IniConfig() { PadLeftOfEqual = 1, PadRightOfEqual = 1 };
+    var nozzleSizes = new string[]    { "0.3", "0.4", "0.5", "0.6", "0.8", "1.0" };
+    var iniConfig   = new IniConfig() { PadLeftOfEqual = 1, PadRightOfEqual = 1 };
     
 
     // For each nozzle size
@@ -33,6 +33,39 @@ void CreateNozzles()
         }
     }
 }
+
+
+
+void InsertGCode()
+{
+    var iniConfig                = new IniConfig() { PadLeftOfEqual = 1       , PadRightOfEqual = 1   };
+    var singleNozzlePrinterNames = new string[]    { "Raise3D_Pro3Plus_Single", "Raise3D_Pro3_Single" };
+    var doubleNozzleprinterNames = new string[]    { "Raise3D_Pro3Plus_Dual"  , "Raise3D_Pro3_Dual"   };
+
+    var doubleStartGcode = JsonEncodedText.Encode(File.ReadAllText($"../../../../Resources/Gcode/Raise3D_Pro3_Double_Start_Gcode.txt"));
+    var doubleStopGcode  = JsonEncodedText.Encode(File.ReadAllText($"../../../../Resources/Gcode/Raise3D_Pro3_Double_Stop_Gcode.txt" ));
+    var singleStartGcode = JsonEncodedText.Encode(File.ReadAllText($"../../../../Resources/Gcode/Raise3D_Pro3_Single_Start_Gcode.txt"));
+    var singleStopGcode  = JsonEncodedText.Encode(File.ReadAllText($"../../../../Resources/Gcode/Raise3D_Pro3_Single_Stop_Gcode.txt" ));
+
+    // For each nozzle size
+    
+    foreach (var printerName in singleNozzlePrinterNames)
+    {
+        var singleNozzlePrinterDefinition = JObject.Parse(File.ReadAllText($"../../../../Cura/Current/Release/definitions/{printerName}.def.json"));
+        singleNozzlePrinterDefinition = (JObject)singleNozzlePrinterDefinition.ReplacePath(@"$.overrides.machine_start_gcode.default_value", singleStartGcode);
+        singleNozzlePrinterDefinition = (JObject)singleNozzlePrinterDefinition.ReplacePath(@"$.overrides.machine_end_gcode.default_value", singleStopGcode);
+        File.WriteAllText($"../../../../Cura/Current/Release/definitions/{printerName}.def.json.temp", singleNozzlePrinterDefinition.ToString());
+    }
+
+    foreach (var printerName in doubleNozzleprinterNames)
+    {
+        var singleNozzlePrinterDefinition = JObject.Parse(File.ReadAllText($"../../../../Cura/Current/Release/definitions/{printerName}.def.json"));
+        singleNozzlePrinterDefinition = (JObject)singleNozzlePrinterDefinition.ReplacePath(@"$.overrides.machine_start_gcode.default_value", doubleStartGcode);
+        singleNozzlePrinterDefinition = (JObject)singleNozzlePrinterDefinition.ReplacePath(@"$.overrides.machine_end_gcode.default_value", doubleStopGcode);
+        File.WriteAllText($"../../../../Cura/Current/Release/definitions/{printerName}.def.json.temp", singleNozzlePrinterDefinition.ToString());
+    }
+}
+
 
 void CreateVariantFiles()
 {
@@ -198,3 +231,26 @@ IniCompareResult UpdateWithFastSettingStrategy(IniCompare iniCompare, out string
 }
 
 
+public static class JsonExtensions
+{
+    public static JToken ReplacePath<T>(this JToken root, string path, T newValue)
+    {
+        if (root == null || path == null)
+            throw new ArgumentNullException();
+
+        foreach (var value in root.SelectTokens(path).ToList())
+        {
+            if (value == root)
+                root = JToken.FromObject(newValue);
+            else
+                value.Replace(JToken.FromObject(newValue));
+        }
+
+        return root;
+    }
+
+    public static string ReplacePath<T>(string jsonString, string path, T newValue)
+    {
+        return JToken.Parse(jsonString).ReplacePath(path, newValue).ToString();
+    }
+}
